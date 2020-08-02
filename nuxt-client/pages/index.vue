@@ -23,6 +23,8 @@
           GitHub 1
         </a>
         <Button text="Click me!"></Button>
+        <Input label="Sample" id="sample" v-model="input" />
+        <div>{{ input }}</div>
       </div>
     </div>
   </div>
@@ -31,12 +33,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { Button } from 'vue-component'
+import { Button, Input } from 'vue-component'
 
 @Component({
-  components: { Button },
+  components: { Button, Input },
 })
-export default class VuePage extends Vue {}
+export default class VuePage extends Vue {
+  input = ''
+}
 </script>
 
 <style>
