@@ -33,7 +33,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { Button, Input } from 'vue-component'
+import { Button } from 'vue-component-button'
+import { Input } from 'vue-component-input'
 
 @Component({
   components: { Button, Input },

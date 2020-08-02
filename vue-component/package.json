@@ -6,15 +6,17 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-lib": "vue-cli-service build --target lib src/index.ts && npm pack && shx mv ./vue-component-0.1.0.tgz ..",
+    "build-libs": "run-s build:*",
+    "build:button": "npe name vue-component-button && vue-cli-service build --target lib --name vue-component src/components/button/index.ts && shx cp src/components/button/index.d.ts dist/index.d.ts && npm pack && shx mv ./vue-component-button-*.tgz .. && npe name vue-component",
+    "build:input": "npe name vue-component-input && vue-cli-service build --target lib --name vue-component src/components/input/index.ts && shx cp src/components/input/index.d.ts dist/index.d.ts && npm pack && shx mv ./vue-component-input-*.tgz .. && npe name vue-component",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "files": [
-    "dist/*",
-    "types/*"
+    "dist/*"
   ],
   "main": "./dist/vue-component.umd.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
@@ -37,6 +39,8 @@
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.12.0",
+    "npe": "^1.1.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "shx": "^0.3.2",
